@@ -1,151 +1,336 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-     
-        <title>Login - Notes Sharing System</title>
-        <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <p style="padding-top: 30px;text-align: center;font-size: 30px;">Notes Sharing System</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
 
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Signup</h3></div>
-                                    <div class="card-body">
-                                        <form action="" method="POST" enctype="multipart/form-data">
-                                            {% csrf_token %}
-                                            
-                                            <!-- Display success or error messages -->
-                                            {% if messages %}
-                                                {% for message in messages %}
-                                                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                                                        {{ message }}
-                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                {% endfor %}
-                                            {% endif %}
-                                        
-                                            <!-- Profile Pic Upload -->
-                                            <div class="form-floating mb-3">
-                                                <input id="pic" type="file" class="form-control" name="pic" required="true" onchange="previewImage(event)" accept="image/jpeg, image/png">
-                                                <label for="pic">Profile Pic</label>
-                                            </div>
-                                            
-                                            <!-- Cropping Container (Initially Hidden) -->
-                                            <div id="crop-container" style="display:none;">
-                                                <img id="crop-image" style="max-width: 100%; height: auto;" />
-                                                <button type="button" class="btn btn-primary" onclick="cropImage()">Crop</button>
-                                            </div>
-                                            
-                                            <!-- Hidden Field to Store Cropped Image Data -->
-                                            <input type="hidden" id="croppedImageData" name="croppedImageData">
-                                            
-                                            <!-- Personal Information Fields -->
-                                            <div class="form-floating mb-3">
-                                                <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" required="true">
-                                                <label for="first_name">First Name</label>
-                                            </div>
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" required="true">
-                                                <label for="last_name">Last Name</label>
-                                            </div>
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input id="email" type="email" class="form-control" placeholder="Email" name="email" required="true">
-                                                <label for="email">Email</label>
-                                            </div>
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input id="username" type="text" class="form-control" placeholder="Enter Username" name="username" required="true">
-                                                <label for="username">Username</label>
-                                            </div>
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input id="mobno" type="text" class="form-control" placeholder="Mobile" name="mobno" maxlength="10" pattern="[0-9]+" required="true">
-                                                <label for="mobno">Mobile Number</label>
-                                            </div>
-                                            
-                                            <div class="form-floating mb-3">
-                                                <input id="password" type="password" class="form-control" placeholder="Password" name="password" required="true">
-                                                <label for="password">Password</label>
-                                            </div>
-                                            
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <button class="btn btn-primary" type="submit">Signup</button>
-                                            </div>
-                                        </form>
-                                        
-                                        <!-- Optional Preview Box for Cropper -->
-                                        
-                                        
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{% url 'login' %}">Do you have an account</a></div>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{% url 'index' %}">Home</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <br>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Notes Sharing System</div>
 
+
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+
+
+
+        .login-form {
+            position: relative;
+            min-height: 100vh;
+            background: hsla(252, 100%, 52%, 0.838);
+            padding: 30px;
+            justify-content: center;
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .form-img h1 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 400;
+            color: #0f3bff;
+        }
+
+        .login-form h2 {
+            line-height: 40px;
+            margin-bottom: 5px;
+            font-size: 30px;
+            font-weight: 500;
+            color: #272346;
+            text-align: center;
+        }
+
+        .login-form .main {
+            position: relative;
+            display: flex;
+            margin: 30px 0;
+        }
+
+        .content {
+            flex-basis: 50%;
+            padding: 3em 3em;
+            background: #fff;
+            box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-img {
+            flex-basis: 50%;
+            background: #dfe5ea;
+            background-size: cover;
+            padding: 40px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            align-items: center;
+            display: grid;
+        }
+
+        .form-img img {
+            max-width: 100%;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 25px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        .btn, button, input {
+            border-radius: 35px;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        .btn:hover, button:hover {
+            color: #272346;
+            transition: 0.5s ease;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .login-form form {
+            margin: 30px 0;
+        }
+
+        .login-form input {
+            outline: none;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #999;
+            text-align: left;
+            padding: 14px 20px;
+            width: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+            border: none;
+            background: #f7fafc;
+            transition: 0.3s ease;
+        }
+
+        .login-form input:focus {
+            background: transparent;
+            border: 1px solid #4622d5;
+        }
+
+        .login-form button {
+            font-size: 18px;
+            color: #fff;
+            width: 100%;
+            background: #4617ff;
+            border: none;
+            padding: 14px 15px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        p.account a {
+            color: #4e34b6;
+        }
+
+        p.account a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width:736px) {
+            .login-form .main {
+                flex-direction: column;
+            }
+
+            .form-img {
+                border-radius: 0;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                order: 2;
+            }
+
+            .content {
+                order: 1;
+                border-radius: 0;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <div class="container">
+            <div class="main">
+                <div class="content">
+                    <h2>Register for ClassRank</h2>
+                    {% comment %} <form action="{% url 'usersignup' %}" method="post" enctype="multipart/form-data"> {% endcomment %}
+                        <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                         <!-- Display success or error messages -->
+                         {% if messages %}
+                         {% for message in messages %}
+                             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                 {{ message }}
+                                  
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                         {% endfor %}
+                     {% endif %}
+                        
+                        <!-- Profile Picture Upload -->
+                        <input type="file" name="profile_pic" accept="image/*" required id="pic" onchange="previewImage(event)">
+                        
+                        <!-- Cropping Container (Initially Hidden) -->
+                        <div id="crop-container" style="display:none;">
+                            <img id="crop-image" style="max-width: 100%; height: auto;" />
+                            <button type="button" class="btn btn-primary" onclick="cropImage()">Crop</button>
                         </div>
-                    </div>
-                </footer>
+                        
+                        <!-- Hidden Field to Store Cropped Image Data -->
+                        <input type="hidden" id="croppedImageData" name="croppedImageData">
+                        
+                        <!-- First Name -->
+                        <input  id="first_name" type="text" name="first_name" placeholder="First Name" required="true">
+                        
+                        
+                        <!-- Last Name -->
+                        <input id="last_name" type="text" name="last_name" placeholder="Last Name" required="true">
+                        
+                                                
+                        <!-- Email -->
+                        <input  id="email" type="email" name="email" placeholder="Email" required="true">
+                        
+                        <!-- Username -->
+                        <input type="tel" id="username" name="username" placeholder="Username" required="true">
+                        
+                        <!-- Mobile Number -->
+                        <input type="tel" name="mobno" placeholder="Mobile Number" axlength="10" pattern="[0-9]+" required="true">
+                        
+                        
+                        <!-- Password -->
+                        <input id="password" type="password" name="password" placeholder="Password" required="true">
+                        
+                        
+                        
+                        <!-- Submit Button -->
+                        <button class="btn" type="submit">Sign Up</button>
+                    </form>
+                    <p class="account">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
+                <div class="form-img">
+                    <h1>ClassRank</h1>
+                    <img src="bg 2.png" alt="">
+                </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </div>
+
+    <!-- Link CropperJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    
+    <script>
+        let cropper;
         
-        <script src="{% static 'assets/js/scripts.js' %}"></script>
+        // Preview the image after upload
+        function previewImage(event) {
+            const input = event.target;
+            const container = document.getElementById('crop-container');
+            const image = document.getElementById('crop-image');
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+            const file = input.files[0];
+            
+            // Check file type
+            const allowedTypes = ['image/jpeg', 'image/png'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Please upload a JPEG or PNG image.');
+                input.value = ''; // Clear the file input
+                return;
+            }
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    </body>
+            // Check file size (under 5MB)
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            if (file.size > maxSize) {
+                alert('File size should be less than 5MB.');
+                input.value = ''; // Clear the file input
+                return;
+            }
+
+            // Show the crop container and load the image
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                    container.style.display = 'block';
+
+                    // Destroy previous cropper instance if exists
+                    if (cropper) {
+                        cropper.destroy();
+                    }
+
+                    // Initialize Cropper.js
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1, // Maintain a square crop
+                        viewMode: 1,    // Restrict the crop box to fit within the canvas
+                        preview: '.img-preview', // Optional: Add a preview box
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Crop the image and store it as base64
+        function cropImage() {
+            if (cropper) {
+                const canvas = cropper.getCroppedCanvas({
+                    width: 200, // Desired width of the output image
+                    height: 200, // Desired height of the output image
+                });
+
+                const croppedImageData = canvas.toDataURL('image/png');
+                document.getElementById('croppedImageData').value = croppedImageData;
+
+                // Optionally, display the cropped image preview
+                document.getElementById('crop-container').innerHTML = `
+                    <img src="${croppedImageData}" alt="Cropped Image" style="max-width: 100%;">
+                `;
+            }
+        }
+    </script>
+</body>
 </html>

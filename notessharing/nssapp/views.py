@@ -10,7 +10,9 @@ from django.db.models import Q
 User = get_user_model()
 
 def Index(request):
-    return render(request,'index.html') 
+    if request.user.is_authenticated:
+        return redirect('home')  # Redirect to the home page if the user is logged in
+    return render(request, 'index.html')  # Render the landing page if the user is not logged in
 
 @login_required
 def Home(request):
@@ -35,8 +37,6 @@ def home_about(request):
     return render(request,'abouthome.html' )
 
 @login_required(login_url = '/')
-
-
 def BASE(request):
     return render(request, 'base.html')
 
@@ -200,7 +200,7 @@ def USERSIGNUP(request):
             nsuser.save()
 
             messages.success(request, 'Signup Successfully')
-            return redirect('usersignup')
+            return redirect('login')
 
     return render(request, 'signup.html')
 
