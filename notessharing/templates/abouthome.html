@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/about.css' %}">
+    <title>About</title>
+</head>
+<body>
+     <div id="main">
+        <nav>
+            <div class="logo">
+                <img src="Untitled-1-Recovered.png"
+                alt="">
+            </div>
+            <div class="part2">
+                 <ul class="nav-links">
+                    <li><a href=" {% url "home" %} ">HOME</a></li>
+                    <li><a href="/">ABOUT</a></li>
+                    
+                    <li><a href="{% url 'home_notes_details' %}">NOTES</a></li>
+                </ul>
+            </div>
+            <h3>Menu</h3>
+        </nav>
+        <div class="page1">
+            <div class="container">
+                <h1>ABOUT</h1>
+                <div class="box">
+                    <div class="card" id="front"></div>
+                    <div class="card" id="back"></div>
+                    <div class="card" id="left"></div>
+                    <div class="card" id="right"></div>
+                    <div class="card" id="top"></div>
+                    <div class="card" id="bottom"></div>
+                </div>
+            </div>
+            <div class="empty">
+                
+            </div>
+            <div class="center">
+                <h1>
+                    Our Dream Is
+                    Global learning <br>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quo iusto temporibus maxime nostrum, molestiae reiciendis ipsa quam quae architecto laboriosam sequi magni maiores illo? Commodi tempore corporis aperiam possimus facilis qui veniam iusto. Consectetur, quae sunt. At qui praesentium nulla dolores, nostrum minus quibusdam animi optio dolore dolor natus hic corrupti odio ex, dolorem tempore, cumque quae. Deleniti, quo, non commodi facilis enim necessitatibus ratione explicabo inventore recusandae odit aspernatur provident laboriosam minima vero cupiditate eius illum quos fuga fugit culpa. Totam debitis doloremque repudiandae consequatur. Mollitia, cum? Esse sunt nam iste labore perspiciatis et? Aliquam, fugiat enim!</p>
+            </div>
+        </div>
+        <div class="page2">
+            
+        </div>
+     </div>
+</body>
+</html>

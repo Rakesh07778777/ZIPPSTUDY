@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZIPPSTUDY</title>
+    <link rel="shortcut icon" href="images/png.png" type="x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div id="loader">
+      <h1>WELCOME TO ZIPPSTUDY</h1>
+    </div>
+    <div id="fixed-image"></div>
+    <div id="main">
+      <div id="page1">
+        <nav>
+          <div class="logo">
+            <a href="/"><img src="{% static 'images/logo.png' %}" alt=""/></a>
+          </div>
+
+          <!-- <div id="nav-part2"> -->
+          <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="{% url 'about' %}">ABOUT</a></li>
+            <li><a href="{% url 'notes_details' %}">NOTES</a></li>
+          </ul>
+          <div class="login">
+            <li><a href="{% url 'login' %}">SIGN IN</a></li>
+            <li><a href="{% url 'usersignup' %}">SIGN UP</a></li>
+          </div>
+
+      <!-- delete -->
+
+
+
+
+
+
+
+     <!-- delete -->
+          <!-- </div> -->
+          <h3>Menu</h3>
+        </nav>
+        <div id="center">
+          <div id="left">
+            <div class="get-started">
+              <h4><a href="{% url 'usersignup' %}">Get Start</a></h4>
+            </div>
+            <h3>
+              a world of academic resources, collaborate with peers, and
+              excel in your education
+            </h3>
+          </div>
+          <div id="right">
+            <h1>
+            
+              <br />
+              TO
+              <br />
+              ZIPPSTUDY
+            </h1>
+          </div>
+        </div>
+        <div id="hero-shape">
+          <div id="hero-1"></div>
+          <div id="hero-2"></div>
+          <div id="hero-3"></div>
+        </div>
+          {% comment %} <video autoplay loop muted src="{% static 'video/video1.mp4' %}"></video> {% endcomment %}
+          <img src="{% static 'images/center.jpg' %}" alt=""/ class="cntr-img">
+
+      </div>
+      <div id="page2">
+        <div id="moving-text">
+          <div class="con">
+            <h1>WELCOME TO ZIPPSTUDY</h1>
+            <div id="gola"></div>
+            <h1>UNLOCK YOUR POTENTIAL</h1>
+            <div id="gola"></div>
+            <h1>TRANSFORM YOUR MIND</h1>
+            <div id="gola"></div>
+          </div>
+          <div class="con">
+            <h1>WELCOME TO ZIPPSTUDY</h1>
+            <div id="gola"></div>
+            <h1>UNLOCK YOUR POTENTIAL</h1>
+            <div id="gola"></div>
+            <h1>TRANSFORM YOUR MIND</h1>
+            <div id="gola"></div>
+          </div>
+          <div class="con">
+            <h1>WELCOME TO ZIPPSTUDY</h1>
+            <div id="gola"></div>
+            <h1>UNLOCK YOUR POTENTIAL</h1>
+            <div id="gola"></div>
+            <h1>TRANSFORM YOUR MIND</h1>
+            <div id="gola"></div>
+          </div>
+        </div>
+        <div id="page2-bottom">
+          <h1>
+            focus is clear—empower learning through innovation, collaboration, and simplicity. Every feature we build, every tool <strong class="strong">we design </strong>, and every resource we provide is a step toward making education accessible, engaging, and impactful for all.
+          </h1>
+          <div id="bottom-part2">
+            <img
+              src="https://uploads-ssl.webflow.com/64d3dd9edfb41666c35b15b7/64d3dd9edfb41666c35b15d1_Holding_thumb-p-500.jpg"
+              alt=""
+            />
+            <p>
+                We are a team of forward-thinkers, problem-solvers, and design enthusiasts united by a shared mission: to revolutionize the way knowledge is shared and accessed. We believe that every small detail contributes to a greater impact, and it's this belief that drives us to create a platform where students and educators can thrive together.
+            </p>
+          </div>
+        </div>
+        <div id="gooey"></div>
+      </div>
+
+      <div id="page3">
+        <h2>Key Features</h2>
+        <div id="elem-container">
+          <div class="three-elem">
+            <div class="one">
+                 <div id="elem1" class="elem">
+              <h3>Notes Sharing Hub</h3>
+              <p>
+                A platform for students to upload and download detailed,
+                subject-specific study notes, fostering collaboration and
+                providing easy access to valuable resources to help students
+                excel in their academic pursuits.
+              </p>
+            </div>
+            <div class="elem">
+              <h3>Previous Year Question papers</h3>
+              <p>
+                A collection of past exam papers allowing students to practice
+                real questions, enhancing exam preparation and helping them
+                develop effective strategies for better performance during
+                exams.
+              </p>
+            </div>
+            </div>
+            <div class="one">
+                 <div class="elem">
+              <h3>Second-Hand Book Marketplace</h3>
+              <p>
+                Buy and sell second-hand books easily, making education more
+                affordable and accessible while encouraging sustainability and
+                resource-sharing among students.
+              </p>
+            </div>
+            <div class="elem">
+              <h3>Assignment Submission Portal</h3>
+              <p>
+                Students can upload and share assignments, facilitating
+                collaboration, peer learning, and the exchange of ideas to
+                enhance understanding and academic growth.
+              </p>
+            </div>
+            </div>
+           
+           
+          </div>
+        </div>
+      </div>
+      <div id="page4">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                ZIPPSTUDY has been a lifesaver for me! The notes sharing feature
+                helped me prepare for my exams in half the time.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h4>Review</h4>
+              <div class="rate-img">
+              </div>
+              <div class="names">
+                Emily Rhodes
+                <h4>Student</h4>
+              </div>
+              <p>
+                The second-hand book marketplace is genius! I saved so much
+                money on textbooks this semester.
+              </p>
+              <div class="all-stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page5"></div>
+      <!-- doubt -->
+      <div id="full-scr">
+        <div id="full-div1"></div>
+      </div>
+      <!-- doubt end -->
+    </div>
+    <div id="footer" data-scroll-ignore>
+        <div class="motiv">
+          <h2> <span class="span1">User-friendly </span>platform that puts 
+            <br>
+             knowledge right at your fingertips.</h2>
+          <h2>Share what you know,
+            <br>
+            <span class="span1">Discover </span> what you don't,
+            <br>
+            And fuel your journey to excellence.</h2>
+        </div>
+
+      <div id="footer-div" >
+       <h1>DIVE INTO
+        <br>
+        <span class="span2">AN INTUITIVE</span></h1>
+      </div>
+      <img src="{% static 'images/logo.png' %}" alt="" />
+      <div id="footer-bottom">
+        <p>©️ 2024 ZippStudy Ltd. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-instagram fa-3x"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook fa-3x"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin fa-3x"></i></a>
+          <a href="#"><i class="fa-brands fa-github fa-3x"></i></a>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
